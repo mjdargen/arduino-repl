@@ -1,2 +1,2 @@
 language = "cpp"
-run = ""
+run = "g++ -o arduino main.cpp arduino.cpp && ./arduino"
