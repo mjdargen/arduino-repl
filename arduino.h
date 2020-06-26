@@ -14,45 +14,17 @@
 
 class dummySerial{
   public:
-    void print(int val) {
-      std::cout << value;
+    void begin(int baud) {
+      ;
     }
-    void print(const std::string &s) {
-      std::cout << s;
+    template<typename T> static void print(T t) {
+      std::cout << t;
+      std::cout.flush();
     }
-    // template<typename T>
-    // void print(T value) {
-    //   if constexpr (std::is_same_v<std::decay_t<T>, int>) {
-    //       std::cout << value;
-    //   }
-    //   else if constexpr (std::is_same_v<std::decay_t<T>, bool>) {
-    //       std::cout << value;
-    //   }
-    //   else if constexpr (std::is_same_v<std::decay_t<T>, float>) {
-    //       std::cout << value;
-    //   }
-    //   else if constexpr (std::is_same_v<std::decay_t<T>, std::string>) {
-    //       std::cout << value;
-    //   }
-    // }
-    template<typename T>
-    void println(T value) {
-      if constexpr (std::is_same_v<std::decay_t<T>, int>) {
-          std::cout << value;
-          std::cout << "\n";
-      }
-      else if constexpr (std::is_same_v<std::decay_t<T>, bool>) {
-          std::cout << value;
-          std::cout << "\n";
-      }
-      else if constexpr (std::is_same_v<std::decay_t<T>, float>) {
-          std::cout << value;
-          std::cout << "\n";
-      }
-      else if constexpr (std::is_same_v<std::decay_t<T>, std::string>) {
-          std::cout << value;
-          std::cout << "\n";
-      }
+    template<typename T> static void println(T t) {
+      std::cout << t;
+      std::cout << std::endl;
+      std::cout.flush();
     }
 };
 
@@ -60,3 +32,5 @@ extern dummySerial Serial;
 void setup();
 void loop();
 int random(int start, int end);
+unsigned long millis();
+unsigned long micros();
