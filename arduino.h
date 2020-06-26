@@ -9,6 +9,9 @@
 })
 #define A0  1
 
+#define HIGH 1
+#define LOW 0
+
 #define delayMicroseconds(us) usleep(us)
 #define delay(ms) usleep(ms*1000)
 
